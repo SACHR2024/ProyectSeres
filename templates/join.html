@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="../Osu!Favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/formsStyles.css">
+</head>
+<body>
+    <div class="contend">
+        <header>
+
+            <div class="divLogo">
+                <img class="logo" src="../static/image/Osu!_Logo_2016.svg.png" alt="Logo">
+            </div>
+    
+            <nav>
+                <ul class="navigator">
+                    <li class="navButton">
+                        <a class="navOption" href="../index.html">Home</a>
+                    </li>
+                    <li class="navButton">
+                        <a class="navOption" href="about.html">About</a>
+                    </li>
+                    <li class="navButton">
+                        <a class="navOption" href="login.html">login</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div>
+            <main>
+                <div class="arts">
+                    <form method="post" action="../functions/join.php" class="forForm" >
+                        <label for="userName">Username</label>
+                        <input class="toInput" type="text" placeholder="Seres" id="userName" name="userName" required>
+
+                        <label for="userPassword">Password</label>
+                        <input class="toInput" type="password" placeholder="1234" id="userPassword" name="userPassword" required>
+
+                        <label for="passwordConfirm">Comfirm Password</label>
+                        <input class="toInput" type="password" placeholder="1234" id="passwordConfirm" name="passwordConfirm" required>
+
+                        <label for="userEmail">Email</label>
+                        <input class="toInput" type="email" placeholder="example@domain.com" id="userEmail" name="userEmail" required>
+
+                        <label for="userbirthday">Birthday</label>
+                        <input class="toInput" type="date" id="userbirthday" name="userbirthday">
+
+                        <label for="">Gender</label>
+                        <div class="radioOptions">
+                            <input type="radio" placeholder="Seres" id="userGender" value="M" name="userGender"> Man
+                            <br>
+                            <input style="margin-left: 10px;" type="radio" placeholder="Seres" id="userGender" value="W" name="userGender"> Woman
+                        </div>
+                        <br>
+                        <div class="toActions">
+                            <button class='toButton' type="submit" name="createSeres">Send</button>
+                            <button class='toButton' type="reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+            
+        </div>
+        <footer>
+            <i>SACHR</i> | <a href="https://osu.ppy.sh" target="_blank">OSU!</a>
+        </footer>
+    </div>
+</body>
+</html>
