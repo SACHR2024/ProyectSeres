@@ -17,11 +17,14 @@
             $execQuery = sqlsrv_query($TheConexion, $Query);
 
             if ($execQuery) {
-             echo "<h3>Datos Agregados</h3>";
+             echo "<main>
+                <div class="arts">
+                    <h2></h2>
+                </div>
+            </main>";
             }
         } else {
             echo "<h3>confirme la contraseña</h3>";
-
         }
     }
 ?>
