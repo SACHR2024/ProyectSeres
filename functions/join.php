@@ -12,7 +12,7 @@
 
         if ($passwordUser == $confirmPassordU) {
 
-            $Query = "insert into seresUsers vales ('$nameUser', '$passwordUser', '$emailUser', '$BirthdayUser', '$genderUser', 0);";
+            $Query = "insert into seresUsers values ('$nameUser', '$passwordUser', '$emailUser', '$BirthdayUser', '$genderUser', 0);";
 
             $execQuery = sqlsrv_query($TheConexion, $Query);
 ?>
@@ -23,7 +23,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AddUsers</title>
-    <link rel="shortcut icon" href="Osu!Favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../Osu!Favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../styles/formsStyles.css">
 </head>
 <body>
@@ -51,13 +51,21 @@
         <div class="mainAsideContend">
             <main>
             <div class="arts">
-                <?php 
-                    if ($execQuery) {
-                        echo "<img src='../static/image/success-icon-23194.png' alt='Success'> <br> <h2 style='color:green'>Success</h2>";
-                    }else {
-                        echo "<img src='../static/image/error-icon-25266.png' alt='Error'> <br> <h2 style='color:red'>Error..</h2>";
-                    }
-                ?>
+
+                <div class="forForm">
+                    <?php 
+                        if ($execQuery) {
+                            echo "<img src='../static/image/success-icon-23194.png' alt='Success'> <br> <h2 style='color:green'>Success</h2> <br>";
+                        }else {
+                            echo "<img src='../static/image/error-icon-25266.png' alt='Error'> <br> <h2 style='color:red'>Error..</h2> <br>";
+                        }
+                    ?>
+
+                    <div class="navButton">
+                        <a class="navOption" href="../index.html">Return</a>
+                    </div>
+                </div>
+
             </div>
             </main>
         </div>
