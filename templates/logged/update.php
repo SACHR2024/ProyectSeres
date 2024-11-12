@@ -18,7 +18,7 @@
             <nav>
                 <ul class="navigator">
                     <li class="navButton">
-                        <a class="navOption" href="../index.html">Home</a>
+                        <a class="navOption" href="../../index.html">Home</a>
                     </li>
                     <li class="navButton">
                         <a class="navOption" href="about.html">About</a>
@@ -32,7 +32,7 @@
         <div>
             <main>
                 <div class="arts">
-                    <form method="post" action="../functions/join.php" class="forForm" >
+                    <form method="post" action="../../functions/join.php" class="forForm" >
                         <label for="userName">Username</label>
                         <input class="toInput" type="text" placeholder="Seres" id="userName" name="userName" required>
 
