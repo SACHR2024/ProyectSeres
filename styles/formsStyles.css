@@ -123,10 +123,12 @@ article {
     display: flex;
     flex-direction: row;
     width: 95%;
+    min-height: 500px;
     align-items: center;
     justify-content: center;
     margin: auto;
     margin-bottom: 20px;
+    border: solid 2px red;
 }
 
 
