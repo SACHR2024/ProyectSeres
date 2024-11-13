@@ -95,12 +95,10 @@ main{
     padding: 10px;
     display: flex;
     flex-direction: column;
-    width: 600px;
+    width: 60%;
     height: auto;
     align-items: center;
     justify-content: center;
-    margin: auto;
-    margin-bottom: 20px;
     background-color: rgba(0, 0, 0, 50%);
     border: solid 2px purple;
 }
@@ -128,7 +126,6 @@ article {
     justify-content: center;
     margin: auto;
     margin-bottom: 20px;
-    border: solid 2px red;
 }
 
 
