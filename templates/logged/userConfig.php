@@ -1,9 +1,14 @@
+
+<?php 
+    include("../../functions/configUser.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Configurar usuario</title>
     <link rel="shortcut icon" href="../../Osu!Favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../styles/formsStyles.css">
 </head>
@@ -34,34 +39,36 @@
                 <div class="arts">
                     <form method="post" action="../../functions/join.php" class="forForm" >
                         <label for="userName">Username</label>
-                        <input class="toInput" type="text" placeholder="Seres" id="userName" name="userName" required>
+                        <input class="toInput" type="text" placeholder="Seres" value="<?php echo $upName; ?>" id="userName" name="userName" required>
 
                         <label for="userPassword">Password</label>
-                        <input class="toInput" type="password" placeholder="1234" id="userPassword" name="userPassword" required>
+                        <input class="toInput" type="password" placeholder="1234" value="<?php echo $upPass; ?>" id="userPassword" name="userPassword" required>
 
                         <label for="passwordConfirm">Comfirm Password</label>
-                        <input class="toInput" type="password" placeholder="1234" id="passwordConfirm" name="passwordConfirm" required>
+                        <input class="toInput" type="password" placeholder="1234" value="<?php echo $upPass; ?>" id="passwordConfirm" name="passwordConfirm" required>
 
                         <label for="userEmail">Email</label>
-                        <input class="toInput" type="email" placeholder="example@domain.com" id="userEmail" name="userEmail" required>
+                        <input class="toInput" type="email" placeholder="example@domain.com" value="<?php echo $upmail; ?>" id="userEmail" name="userEmail" required>
 
-                        <label for="userbirthday">Birthday</label>
-                        <input class="toInput" type="date" id="userbirthday" name="userbirthday">
-
-                        <label for="">Gender</label>
-                        <div class="radioOptions">
-                            <input type="radio" placeholder="Seres" id="userGender" value="M" name="userGender"> Man
-                            <br>
-                            <input style="margin-left: 10px;" type="radio" placeholder="Seres" id="userGender" value="W" name="userGender"> Woman
-                        </div>
                         <br>
+
                         <div class="toActions">
                             <button class='toButton' type="submit" name="createSeres">Send</button>
                             <button class='toButton' type="reset">Reset</button>
                         </div>
                     </form>
                 </div>
+
+                <div class="arts">
+                    <a style="color:red;" href=" userConfig.php?toDelete=<?php echo $upId; ?>">¿Borrar Cuenta?</a>
+                </div>
             </main>
+
+            <?php 
+                if (isset($_GET['toDelete'])) {
+                    include("../../functions/deleteUser.php");
+                }
+            ?>
             
         </div>
         <footer>

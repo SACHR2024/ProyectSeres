@@ -1,20 +1,18 @@
 <?php 
 
-    include("conection.php");
+    include("./conection.php");
 
     if (isset($_POST['createSeres'])) {
         $nameUser = $_POST['userName'];
         $passwordUser = $_POST['userPassword'];
         $confirmPassordU = $_POST['passwordConfirm'];
         $emailUser = $_POST['userEmail'];
-        $BirthdayUser = $_POST['userbirthday'];
-        $genderUser = $_POST['userGender'];
 
         if ($passwordUser == $confirmPassordU) {
 
-            $Query = "insert into seresUsers values ('$nameUser', '$passwordUser', '$emailUser', '$BirthdayUser', '$genderUser', 0);";
+            $Query = "INSERT INTO seresUsers2 VALUES ('$nameUser', (SELECT dbo.fun_Seres_encriptar('$passwordUser')), '$emailUser')";
 
-            $execQuery = sqlsrv_query($TheConexion, $Query);
+            $execQuery = sqlsrv_query(conexionSqlsrv(), $Query);
 ?>
 
 <!DOCTYPE html>
@@ -59,6 +57,7 @@
                         }else {
                             echo "<img src='../static/image/error-icon-25266.png' alt='Error'> <br> <h2 style='color:red'>Error..</h2> <br>";
                         }
+                    }
                     ?>
 
                     <div class="navButton">
@@ -73,9 +72,10 @@
             <i>SACHR</i> | <a href="https://osu.ppy.sh" target="_blank">OSU!</a>
         </footer>
     </div>
-
-    <?php 
-        }
-    } ?>
 </body>
 </html>
+<?php 
+    }else{
+        echo "<h3>Error: 222</h3>";
+        header("refresh:2; url=http://localhost/proyectSeres/templates/join.html");
+    } 
