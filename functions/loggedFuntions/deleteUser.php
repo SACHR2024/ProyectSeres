@@ -15,6 +15,6 @@
         }
 
     }else {
-        echo "4444 <script> alert('User 404') </script>";
+        echo "<script> alert('User 404') </script>";
         echo "<script> window.open('userConfig.php', '_self') </script>";
     }
