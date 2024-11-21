@@ -1,6 +1,6 @@
 
 <?php 
-    include("../../functions/configUser.php");
+    include("../../functions/loggedFuntions/configUser.php");
 ?>
 
 <!DOCTYPE html>
@@ -39,16 +39,16 @@
                 <div class="arts">
                     <form method="post" action="../../functions/join.php" class="forForm" >
                         <label for="userName">Username</label>
-                        <input class="toInput" type="text" placeholder="Seres" value="<?php echo $upName; ?>" id="userName" name="userName" required>
+                        <input class="toInput" type="text" placeholder="Seres" value="<?php echo $oldName; ?>" id="userName" name="userName" required>
 
                         <label for="userPassword">Password</label>
-                        <input class="toInput" type="password" placeholder="1234" value="<?php echo $upPass; ?>" id="userPassword" name="userPassword" required>
+                        <input class="toInput" type="password" placeholder="1234" value="<?php echo $oldPass; ?>" id="userPassword" name="userPassword" required>
 
                         <label for="passwordConfirm">Comfirm Password</label>
-                        <input class="toInput" type="password" placeholder="1234" value="<?php echo $upPass; ?>" id="passwordConfirm" name="passwordConfirm" required>
+                        <input class="toInput" type="password" placeholder="1234" value="<?php echo $oldPass; ?>" id="passwordConfirm" name="passwordConfirm" required>
 
                         <label for="userEmail">Email</label>
-                        <input class="toInput" type="email" placeholder="example@domain.com" value="<?php echo $upmail; ?>" id="userEmail" name="userEmail" required>
+                        <input class="toInput" type="email" placeholder="example@domain.com" value="<?php echo $oldMail; ?>" id="userEmail" name="userEmail" required>
 
                         <br>
 

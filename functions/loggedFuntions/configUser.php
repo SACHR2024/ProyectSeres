@@ -1,31 +1,26 @@
 <?php
 
-    include("conection.php");
+    include("../../functions/conection.php");
+    include("../../functions/class/seresUser.php");
 
-    $upId = 0;
-    $upName = '';
-    $upPass = '';
-    $upmail = '';
-    $upBday = '';
-    $upGend = '';
-    $upLvel = 0;
+    $actions = new SeresUser();
 
-    $toQuery = "select * from seresUsers where seresID = 8";
+    $toConexion = conexionSqlsrv();
 
-    $execQuery = sqlsrv_query($TheConexion, $toQuery);
+    $userIde = $idUser;
 
-    if ($execQuery) {
-        $info = sqlsrv_fetch_array($execQuery);
+    if ($userIde > 0) {
+        $target = "SELECT * FROM seresUsers2 WHERE serID = $userIde";
+        $toGet = sqlsrv_query($toConexion, $target);
 
-        $upId = $info['seresID'];
-        $upName = $info['seresName'];
-        $upPass = $info['seresPassword'];
-        $upmail = $info['seresEmail'];
-        $upBday = $info['seresBirthday'];
-        $upGend = $info['seresGender'];
-        $upLvel = $info['sereslevel'];
-    }else{
-        echo "<script> alert('Datos no encontrados'); </script>";
+        $user = sqlsrv_fetch_array($toGet);
+        
+        $oldName = $user['serName'];
+        $oldPass = $user['serPassword'];
+        $oldMail = $user['serEmail'];
+
+    }else {
+        echo "<h1>Usuario no encontrado</h1>";
     }
 
     
