@@ -60,7 +60,7 @@
                     ?>
 
                     <div class="navButton">
-                        <a class="navOption" href="../../templates/logged/userHome.php?user=<?php echo $userID; ?>">Return</a>
+                        <a class="navOption" href="../../templates/logged/userHome.php?user=<?php echo $userActions->idUser; ?>">Return</a>
                     </div>
                 </div>
 
