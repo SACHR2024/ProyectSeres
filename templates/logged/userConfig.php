@@ -81,13 +81,13 @@
                 </div>
 
                 <div class="arts">
-                    <a style="color:red;" href=" userConfig.php?toDelete=<?php echo $upId; ?>">¿Borrar Cuenta?</a>
+                    <a style="color:red;" href=" userConfig.php?toDelete=<?php echo $userIde; ?>">¿Borrar Cuenta?</a>
                 </div>
             </main>
 
             <?php 
                 if (isset($_GET['toDelete'])) {
-                    include("../../functions/deleteUser.php");
+                    include("../../functions/loggedFuntions/deleteUser.php");
                 }
             ?>
             

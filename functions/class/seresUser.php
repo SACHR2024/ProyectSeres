@@ -51,4 +51,19 @@
                 echo "<script>alert('confirme la Contraseña')</script>";
             }
         }
+
+        function DeleteUser($conect) {
+            try {
+                $borrar = $conect->prepare("DELETE FROM seresUsers2 WHERE serID = :paramID");
+
+                $borrar->bindValue("paramID", $this->idUser);
+
+                $borrar->execute();
+
+                return true;
+
+            } catch (PDOExeption $R) {
+                echo "Error: ". $R;
+            }
+        }
     }
