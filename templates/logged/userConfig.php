@@ -1,6 +1,25 @@
 
-<?php 
-    include("../../functions/loggedFuntions/configUser.php");
+<?php
+    include("../../functions/conection.php");
+
+    $toConexion = conexionSqlsrv();
+    $userIde = $_GET['identity'];
+
+    if ($userIde > 0) {
+        $target = "SELECT * FROM seresUsers2 WHERE serID = $userIde";
+        $toGet = sqlsrv_query($toConexion, $target);
+
+        $user = sqlsrv_fetch_array($toGet);
+        
+        $oldName = $user['serName'];
+        $oldPass = $user['serPassword'];
+        $oldMail = $user['serEmail'];
+
+    }else {
+        $oldName = "Usuario no encontrado";
+        $oldPass = "Usuario no encontrado";
+        $oldMail = "Usuario no encontrado";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +56,10 @@
         <div>
             <main>
                 <div class="arts">
-                    <form method="post" action="../../functions/join.php" class="forForm" >
+                    <form method="post" action="../../functions/loggedFuntions/configUser.php" class="forForm" >
+
+                        <input type="hidden" value="<?php echo $userIde; ?>" name="userID" readOnly required>
+
                         <label for="userName">Username</label>
                         <input class="toInput" type="text" placeholder="Seres" value="<?php echo $oldName; ?>" id="userName" name="userName" required>
 
@@ -53,8 +75,7 @@
                         <br>
 
                         <div class="toActions">
-                            <button class='toButton' type="submit" name="createSeres">Send</button>
-                            <button class='toButton' type="reset">Reset</button>
+                            <button class='toButton' type="submit" name="updateSeres">Send</button>
                         </div>
                     </form>
                 </div>

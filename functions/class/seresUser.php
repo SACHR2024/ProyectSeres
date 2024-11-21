@@ -22,8 +22,6 @@
 
                 $respuesta = $logear->fetch();
 
-                $this->idUser = $respuesta['serID'];
-
                 return $respuesta;
 
             } catch (PDOExeption $R) {
@@ -37,10 +35,10 @@
 
                     $actualizar = $conect->prepare("UPDATE seresUsers2 SET serName = :paramName, serPassword = :paramPassword, serEmail = :paramEmail WHERE serID = :paramID");
 
-                    $actualizar->bindValue(":paramName". $this->nameUser);
-                    $actualizar->bindValue(":paramPassword". $this->passwordUser);
-                    $actualizar->bindValue(":paramEmail". $this->emailUser);
-                    $actualizar->bindValue(":paramID". $this->idUser);
+                    $actualizar->bindValue(":paramName", $this->nameUser);
+                    $actualizar->bindValue(":paramPassword", $this->passwordUser);
+                    $actualizar->bindValue(":paramEmail", $this->emailUser);
+                    $actualizar->bindValue(":paramID", $this->idUser);
 
                     return $actualizar->execute();
 

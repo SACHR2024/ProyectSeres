@@ -1,3 +1,4 @@
+<?php $userIdentity = $_GET['user']; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,7 @@
                         <a class="navOption" href="templates/about.html">About</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="userConfig.php">Config</a>
+                        <a class="navOption" href="userConfig.php?identity=<?php echo $userIdentity; ?>">Config</a>
                     </li>
                 </ul>
             </nav>
