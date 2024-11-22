@@ -1,6 +1,25 @@
 
-<?php 
-    include("../../functions/configUser.php");
+<?php
+    include("../../functions/conection.php");
+
+    $toConexion = conexionSqlsrv();
+    $userIde = $_GET['identity'];
+
+    if ($userIde > 0) {
+        $target = "SELECT * FROM seresUsers2 WHERE serID = $userIde";
+        $toGet = sqlsrv_query($toConexion, $target);
+
+        $user = sqlsrv_fetch_array($toGet);
+        
+        $oldName = $user['serName'];
+        $oldPass = $user['serPassword'];
+        $oldMail = $user['serEmail'];
+
+    }else {
+        $oldName = "Usuario no encontrado";
+        $oldPass = "Usuario no encontrado";
+        $oldMail = "Usuario no encontrado";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -37,36 +56,38 @@
         <div>
             <main>
                 <div class="arts">
-                    <form method="post" action="../../functions/join.php" class="forForm" >
+                    <form method="post" action="../../functions/loggedFuntions/configUser.php" class="forForm" >
+
+                        <input type="hidden" value="<?php echo $userIde; ?>" name="userID" readOnly required>
+
                         <label for="userName">Username</label>
-                        <input class="toInput" type="text" placeholder="Seres" value="<?php echo $upName; ?>" id="userName" name="userName" required>
+                        <input class="toInput" type="text" placeholder="Seres" value="<?php echo $oldName; ?>" id="userName" name="userName" required>
 
                         <label for="userPassword">Password</label>
-                        <input class="toInput" type="password" placeholder="1234" value="<?php echo $upPass; ?>" id="userPassword" name="userPassword" required>
+                        <input class="toInput" type="password" placeholder="1234" value="<?php echo $oldPass; ?>" id="userPassword" name="userPassword" required>
 
                         <label for="passwordConfirm">Comfirm Password</label>
-                        <input class="toInput" type="password" placeholder="1234" value="<?php echo $upPass; ?>" id="passwordConfirm" name="passwordConfirm" required>
+                        <input class="toInput" type="password" placeholder="1234" value="<?php echo $oldPass; ?>" id="passwordConfirm" name="passwordConfirm" required>
 
                         <label for="userEmail">Email</label>
-                        <input class="toInput" type="email" placeholder="example@domain.com" value="<?php echo $upmail; ?>" id="userEmail" name="userEmail" required>
+                        <input class="toInput" type="email" placeholder="example@domain.com" value="<?php echo $oldMail; ?>" id="userEmail" name="userEmail" required>
 
                         <br>
 
                         <div class="toActions">
-                            <button class='toButton' type="submit" name="createSeres">Send</button>
-                            <button class='toButton' type="reset">Reset</button>
+                            <button class='toButton' type="submit" name="updateSeres">Send</button>
                         </div>
                     </form>
                 </div>
 
                 <div class="arts">
-                    <a style="color:red;" href=" userConfig.php?toDelete=<?php echo $upId; ?>">¿Borrar Cuenta?</a>
+                    <a style="color:red;" href=" userConfig.php?toDelete=<?php echo $userIde; ?>">¿Borrar Cuenta?</a>
                 </div>
             </main>
 
             <?php 
                 if (isset($_GET['toDelete'])) {
-                    include("../../functions/deleteUser.php");
+                    include("../../functions/loggedFuntions/deleteUser.php");
                 }
             ?>
             
