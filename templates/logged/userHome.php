@@ -19,10 +19,10 @@
             <nav>
                 <ul class="navigator">
                     <li class="navButton">
-                        <a class="navOption" href="index.html">Home</a>
+                        <a class="navOption" href="#">History</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="templates/about.html">About</a>
+                        <a class="navOption" href="#">Profile</a>
                     </li>
                     <li class="navButton">
                         <a class="navOption" href="userConfig.php?identity=<?php echo $userIdentity; ?>">Config</a>
