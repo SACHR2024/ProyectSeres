@@ -13,7 +13,7 @@
         function Login($conect){
 
             try {
-                $logear = $conect->prepare("SELECT * FROM seresUsers2 WHERE serName = :paramName AND serPassword = (select dbo.fun_Seres_encriptar(:paramPassword ))");
+                $logear = $conect->prepare("SELECT * FROM seresUsers2 WHERE serName = :paramName AND serPassword = (select dbo.fun_Seres_encriptar(:paramPassword))");
 
                 $logear->bindValue(":paramName", $this->nameUser);
                 $logear->bindValue(":paramPassword", $this->passwordUser);
