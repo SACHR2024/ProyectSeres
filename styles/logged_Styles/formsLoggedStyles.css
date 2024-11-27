@@ -1,16 +1,4 @@
 
-body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-image: url('../static/image/osubackground2.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-attachment: fixed;
-}
-
 .forForm{
     padding: 10px;
     display: flex;
