@@ -3,7 +3,7 @@
     include("../../functions/conection.php");
 
     $toConexion = conexionSqlsrv();
-    $userIde = $_GET['identity'];
+    $userIde = $_GET['user'];
 
     if ($userIde > 0) {
         $target = "SELECT * FROM seresUsers2 WHERE serID = $userIde";
@@ -29,7 +29,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configurar usuario</title>
     <link rel="shortcut icon" href="../../Osu!Favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../../styles/formsStyles.css">
+    <link rel="stylesheet" href="../../styles/logged_Styles/mainLoggedStyle.css">
+    <link rel="stylesheet" href="../../styles/logged_Styles/formsLoggedStyles.css">
 </head>
 <body>
     <div class="contend">
@@ -42,18 +43,18 @@
             <nav>
                 <ul class="navigator">
                     <li class="navButton">
-                        <a class="navOption" href="../../index.html">Home</a>
+                        <a class="navOption" href="./userHome.php?user=<?php echo $userIde; ?>">Home</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="about.html">About</a>
+                        <a class="navOption" href="about.html">History</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="login.html">login</a>
+                        <a class="navOption" href="login.html">Profile</a>
                     </li>
                 </ul>
             </nav>
         </header>
-        <div>
+        <div class="mainAsideContend">
             <main>
                 <div class="arts">
                     <form method="post" action="../../functions/loggedFuntions/configUser.php" class="forForm" >
@@ -80,7 +81,7 @@
                     </form>
                 </div>
 
-                <div class="arts">
+                <div style="margin-bottom:10px;">
                     <a style="color:red;" href=" userConfig.php?toDelete=<?php echo $userIde; ?>">¿Borrar Cuenta?</a>
                 </div>
             </main>

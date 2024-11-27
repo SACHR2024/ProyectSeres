@@ -1,130 +1,34 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
 
-body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-image: url('../static/image/background.jpg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-attachment: fixed;
-}
-
-.logo {
-    width: 100px;
-    height: 100px;
-}
-
-s
-.contend {
-    width: 100%;
-    height: auto;
-    color: azure;
-    display: flex;
-    flex-direction: column;
-}
-
-header{
-    width: 100%;
-    min-height: 100px;
+.tarjeta{
     display: flex;
     flex-direction: row;
-    background-color: black;
-}
-
-nav {
-    margin: auto;
-    width: 70%;
-    background-color: rgb(215, 8, 8);
-    margin-right: 0%;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-}
-
-.navigator {
-    width: 100%;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-}
-
-.navButton{
-    width: 20%;
-    height: 50px;
-    background-color: rgb(255, 0, 191);
+    flex-grow: 0.5;
     margin: 10px;
+    background-color: black;
+    justify-items: flex-start;
 }
 
-.navOption {
-    display: block;
-    width: 100%;
+.tarjeta img {
+    width: 50%;
     height: 100%;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
 }
 
-a {
-    text-decoration: none;
-    color: aliceblue;
+.tarjeta div {
+    width: 40%;
+    margin: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
 }
 
-.mainAsideContend{
-    width: 100%;
-    background-color: rgb(0, 255, 4, 50%);
-    margin-top: 10px;
-    margin-bottom: 10px;
+.tarjeta div .icons {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-}
-
-main{
-    width: 70%;
-    margin: auto;
-    margin-top: 10px;
-    background-color: rgba(0, 0, 0, 50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-article {
+    justify-items: flex-start;
     width: 100%;
-    background-color: beige;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
 }
 
-.toImg {
-    width: 60%;
-    height: auto;
-}
-
-aside{
-    width: 20%;
-    height:auto;
-    background-color: black;
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto;
-}
-
-
-footer{
-    width: 100%;
-    height: 50px;
-    text-align: center;
-    background-color: black;
+.tarjeta div .icons .modeIco{
+    width: 50px;
+    margin: 10px;
 }
