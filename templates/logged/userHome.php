@@ -45,15 +45,19 @@
                 <h2>Noticias</h2>
                 <br>
                     
-                <?php 
-                $i=0;
+                <?php
 
-                while ($contenido = $getNotices->getNotices(conexionSqlsrv())) {
-                    $imgName = $contenido['imgName'];
+                $i = 0;
+
+                $contenido = $getNotices->getNotices(conexionPDO());
+
+                // echo $contenido->fetch();
+
+                while($i < count($contenido)) {
                     $i++;
                  ?>
                 <article class="tarjeta">
-                    <img class="toImg" src="../../static/image/<?php echo $imgName;?>.jpg" alt="image1">
+                    <img class="toImg" src="../../static/image/<?php echo $contenido[$i];?>.jpg" alt="image1">
 
 
                     <div>
@@ -71,7 +75,9 @@
                     </div>
                 </article>
                 <br>
-                <?php }?>
+                <?php
+                    }
+                ?>
             </main>
             <aside>
                 <div class="asideContend">
