@@ -6,6 +6,7 @@
     $userIde = $_GET['user'];
 
     if ($userIde > 0) {
+        /*crear una funcion o vista para ocultar el nombre de la tabla*/
         $target = "SELECT * FROM seresUsers2 WHERE serID = $userIde";
         $toGet = sqlsrv_query($toConexion, $target);
 
