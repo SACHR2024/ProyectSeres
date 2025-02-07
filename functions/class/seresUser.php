@@ -32,7 +32,7 @@
         function UpdateUser($conect, $confirmPass) {
             if ($confirmPass == $this->passwordUser) {
                 try {
-                    //TODO: CREAR UNA FUNCION EN EL SERVIDOR PARA INICIAR SESION Y ASI NO COLOCAR TODO EL QUERY EN EL CODIGO 
+                    //TODO: CREAR UNA FUNCION EN EL SERVIDOR PARA ACTUALIZAR LOS DATOS DEL USUARIO 
                     $actualizar = $conect->prepare("EXEC SeresUpdate :paramName, :paramPassword, :paramEmail, :paramID");
 
                     $actualizar->bindValue(":paramName", $this->nameUser);
@@ -55,7 +55,7 @@
         function DeleteUser($conect) {
             try {
                 //TODO: CREAR UNA FUNCION EN EL SERVIDOR PARA INICIAR SESION Y ASI NO COLOCAR TODO EL QUERY EN EL CODIGO
-                $borrar = $conect->prepare("DELETE FROM seresUsers2 WHERE serID = :paramID");
+                $borrar = $conect->prepare("EXEC SeresDelete :paramID");
 
                 $borrar->bindValue("paramID", $this->idUser);
 

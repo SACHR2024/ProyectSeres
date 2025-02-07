@@ -10,7 +10,7 @@
 
         if ($passwordUser == $confirmPassordU) {
 
-            $Query = "INSERT INTO seresUsers2 VALUES ('$nameUser', (SELECT dbo.fun_Seres_encriptar('$passwordUser')), '$emailUser')";
+            $Query = "EXEC SeresCreate'$nameUser', '$passwordUser', '$emailUser'";
 
             $execQuery = sqlsrv_query(conexionSqlsrv(), $Query);
 ?>
