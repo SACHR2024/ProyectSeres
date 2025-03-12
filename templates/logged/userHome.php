@@ -47,17 +47,16 @@
                     
                 <?php
 
-                $i = 0;
+                $i = 1;
 
                 $contenido = $getNotices->getNotices(conexionPDO());
 
                 // echo $contenido->fetch();
 
                 while($i < count($contenido)) {
-                    $i++;
                  ?>
                 <article class="tarjeta">
-                    <img class="toImg" src="../../static/image/<?php echo $contenido[$i];?>.jpg" alt="image1">
+                    <img class="toImg" src="../../static/image/<?php echo $contenido[$i]?>.jpg" alt="image1">
 
 
                     <div>
@@ -65,6 +64,7 @@
                         <br>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit amet esse deleniti saepe sapiente perspiciatis eius, aliquid nulla hic odio dolores blanditiis iure possimus soluta quibusdam temporibus natus eum sunt?
+                            <p><?php echo '<script>console.log(', $contenido,');</script>'?></p>
                         </p>
 
                         <br>
@@ -76,7 +76,7 @@
                 </article>
                 <br>
                 <?php
-                    }
+                   $i++; }
                 ?>
             </main>
             <aside>
