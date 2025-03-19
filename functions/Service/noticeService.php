@@ -3,7 +3,7 @@
 
         var $userIdentity;
 
-        function constructor($userConection) {
+        function constructor() {
 
         }
 
@@ -14,11 +14,9 @@
 
             $findNotice->execute();
 
-            $respuesta = $findNotice->fetch();
+            if ($findNotice) {
 
-            if ($respuesta) {
-
-                return $respuesta;
+                return $findNotice;
 
             }else {
                 return "<script>alert('Error 404');</script>";

@@ -6,6 +6,7 @@
     $getNotices = new noticeService();
 
     $getNotices->userIdentity=$userIdentity;
+    $contenido = $getNotices->getNotices(conexionPDO());
 
 ?>
 <!DOCTYPE html>
@@ -47,24 +48,22 @@
                     
                 <?php
 
-                $i = 1;
-
-                $contenido = $getNotices->getNotices(conexionPDO());
-
-                // echo $contenido->fetch();
-
-                while($i < count($contenido)) {
+                while($imagenx = $contenido->fetch()) {
+                    $showIMG = $imagenx['imgName'];
+                // while($notices = sqlsrv_fetch_array($toGetCommand)) {
+                //     $showIMG = $notices['imgName'];
+                
                  ?>
                 <article class="tarjeta">
-                    <img class="toImg" src="../../static/image/<?php echo $contenido[$i]?>.jpg" alt="image1">
+                    <img class="toImg" src="../../static/image/<?php echo $showIMG;?>.jpg" alt="image <?php echo $showIMG?>">
 
 
                     <div>
                         <h4>New!!!!!!</h4>
                         <br>
+                        <p>Esta es la imagen: <?php echo $showIMG; ?></p>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit amet esse deleniti saepe sapiente perspiciatis eius, aliquid nulla hic odio dolores blanditiis iure possimus soluta quibusdam temporibus natus eum sunt?
-                            <p><?php echo '<script>console.log(', $contenido,');</script>'?></p>
                         </p>
 
                         <br>
@@ -76,7 +75,7 @@
                 </article>
                 <br>
                 <?php
-                   $i++; }
+                     }
                 ?>
             </main>
             <aside>
