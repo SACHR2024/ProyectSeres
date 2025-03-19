@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>this is AddUsers</title>
-    <link rel="shortcut icon" href="Osu!Favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../Osu!Favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../styles/logged_Styles/mainLoggedStyle.css">
     <link rel="stylesheet" href="../../styles/logged_Styles/Logged.css">
 </head>
@@ -33,7 +33,7 @@
                         <a class="navOption" href="#">History</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="#">Profile</a>
+                        <a class="navOption" href="userProfile.php?user=<?php echo $userIdentity; ?>">Profile</a>
                     </li>
                     <li class="navButton">
                         <a class="navOption" href="userConfig.php?user=<?php echo $userIdentity; ?>">Config</a>
