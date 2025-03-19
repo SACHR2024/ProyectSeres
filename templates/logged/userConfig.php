@@ -3,15 +3,14 @@
     include("../../functions/conection.php");
 
     $toConexion = conexionSqlsrv();
-    $userIde = $_GET['user'];
+    $userIdentity = $_GET['user'];
 
-    if ($userIde > 0) {
-        //TODO :crear una funcion o vista para ocultar el nombre de la tabla
-        $target = "EXEC userSelected $userIde";
+    if ($userIdentity > 0) {
+        
+        $target = "EXEC userSelected $userIdentity";
         $toGet = sqlsrv_query($toConexion, $target);
 
         $user = sqlsrv_fetch_array($toGet);
-        
         $oldName = $user['serName'];
         $oldPass = $user['serPassword'];
         $oldMail = $user['serEmail'];
@@ -28,7 +27,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configurar usuario</title>
+    <title>Configuracion</title>
     <link rel="shortcut icon" href="../../Osu!Favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../styles/logged_Styles/mainLoggedStyle.css">
     <link rel="stylesheet" href="../../styles/logged_Styles/formsLoggedStyles.css">
@@ -44,13 +43,13 @@
             <nav>
                 <ul class="navigator">
                     <li class="navButton">
-                        <a class="navOption" href="./userHome.php?user=<?php echo $userIde; ?>">Home</a>
+                    <a class="navOption" href="about.html">History</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="about.html">History</a>
+                        <a class="navOption" href="userProfile.php?user=<?php echo $userIdentity; ?>">Profile</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="login.html">Profile</a>
+                        <a class="navOption" href="./userHome.php?user=<?php echo $userIdentity; ?>">Home</a>
                     </li>
                 </ul>
             </nav>
@@ -60,7 +59,7 @@
                 <div class="arts">
                     <form method="post" action="../../functions/loggedFuntions/configUser.php" class="forForm" >
 
-                        <input type="hidden" value="<?php echo $userIde; ?>" name="userID" readOnly required>
+                        <input type="hidden" value="<?php echo $userIdentity; ?>" name="userID" readOnly required>
 
                         <label for="userName">Username</label>
                         <input class="toInput" type="text" placeholder="Seres" value="<?php echo $oldName; ?>" id="userName" name="userName" required>
@@ -83,7 +82,7 @@
                 </div>
 
                 <div style="margin-bottom:10px;">
-                    <a style="color:red;" href=" userConfig.php?toDelete=<?php echo $userIde; ?>">¿Borrar Cuenta?</a>
+                    <a style="color:red;" href=" userConfig.php?toDelete=<?php echo $userIdentity; ?>">¿Borrar Cuenta?</a>
                 </div>
             </main>
 
