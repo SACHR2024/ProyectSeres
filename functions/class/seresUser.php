@@ -13,7 +13,7 @@
         function Login($conect){
 
             try {
-                $logear = $conect->prepare("SELECT * FROM seresUsers2 WHERE serName = :paramName AND serPassword = (select dbo.fun_Seres_encriptar(:paramPassword))");
+                $logear = $conect->prepare("EXEC SeresLogin :paramName, :paramPassword");
 
                 $logear->bindValue(":paramName", $this->nameUser);
                 $logear->bindValue(":paramPassword", $this->passwordUser);
@@ -32,8 +32,8 @@
         function UpdateUser($conect, $confirmPass) {
             if ($confirmPass == $this->passwordUser) {
                 try {
-
-                    $actualizar = $conect->prepare("UPDATE seresUsers2 SET serName = :paramName, serPassword = (SELECT dbo.fun_Seres_encriptar(:paramPassword)), serEmail = :paramEmail WHERE serID = :paramID");
+                    //TODO: CREAR UNA FUNCION EN EL SERVIDOR PARA ACTUALIZAR LOS DATOS DEL USUARIO 
+                    $actualizar = $conect->prepare("EXEC SeresUpdate :paramName, :paramPassword, :paramEmail, :paramID");
 
                     $actualizar->bindValue(":paramName", $this->nameUser);
                     $actualizar->bindValue(":paramPassword", $this->passwordUser);
@@ -54,7 +54,8 @@
 
         function DeleteUser($conect) {
             try {
-                $borrar = $conect->prepare("DELETE FROM seresUsers2 WHERE serID = :paramID");
+                //TODO: CREAR UNA FUNCION EN EL SERVIDOR PARA INICIAR SESION Y ASI NO COLOCAR TODO EL QUERY EN EL CODIGO
+                $borrar = $conect->prepare("EXEC SeresDelete :paramID");
 
                 $borrar->bindValue("paramID", $this->idUser);
 
