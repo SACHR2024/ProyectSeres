@@ -118,26 +118,51 @@ footer{
 
 
 .profileBackground {
-    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items:center;
+    flex-wrap: wrap;
     width: 100%;
-    height: 200px;
+    height: 300px;
     background-color: blueviolet;
+    background-image: url(../../static/image/profilebackgroundTest.png);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    margin-bottom: 30px;
 }
 
 .profileMain{
     padding: 0%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    align-self: flex-start;
     margin-bottom: 50px;
 }
 
-.profileImage {
+.profileImage { 
     position: relative;
+    width: 15%;
+    height: 60%;
+    min-height: 200px;
+    min-width: 200px;
+    border-radius: 100px;
+    border: solid 3px white;
 }
 
 .profileInfo{
-    width: 500px;
-    height: 500px;
+    width: 95%;
+    min-height: 400px;
+    margin-bottom: 30px;
+    background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-grow: 3;
+
+}
+
+.profileInfo div {
+    width: 30%;
+    min-height: 300px;
+    background-color: brown;
 }
