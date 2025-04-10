@@ -2,12 +2,15 @@
 <?php
     include("../../functions/conection.php");
 
-    $toConexion = conexionSqlsrv();
-    $userIdentity = $_GET['user'];
+    session_name("seresUser");
+    session_start();
 
-    if ($userIdentity > 0) {
+    $toConexion = conexionSqlsrv();
+    define("NODATA", "usuario no encontrado");
+
+    if ($_SESSION['identity'] > 0) {
         
-        $target = "EXEC userSelected $userIdentity";
+        $target = "EXEC userSelected " . $_SESSION['identity'];
         $toGet = sqlsrv_query($toConexion, $target);
 
         $user = sqlsrv_fetch_array($toGet);
@@ -16,9 +19,9 @@
         $oldMail = $user['serEmail'];
 
     }else {
-        $oldName = "Usuario no encontrado";
-        $oldPass = "Usuario no encontrado";
-        $oldMail = "Usuario no encontrado";
+        $oldName = NODATA;
+        $oldPass = NODATA;
+        $oldMail = NODATA;
     }
 ?>
 
@@ -46,10 +49,10 @@
                     <a class="navOption" href="about.html">History</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="userProfile.php?user=<?php echo $userIdentity; ?>">Profile</a>
+                        <a class="navOption" href="userProfile.php">Profile</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="./userHome.php?user=<?php echo $userIdentity; ?>">Home</a>
+                        <a class="navOption" href="./userHome.php">Home</a>
                     </li>
                 </ul>
             </nav>

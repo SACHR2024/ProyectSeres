@@ -2,10 +2,12 @@
     include("../../functions/conection.php");
     include("../../functions/Service/noticeService.php");
 
-    $userIdentity = $_GET['user'];
+    session_name("seresUser");
+    session_start();
+
     $getNotices = new noticeService();
 
-    $getNotices->userIdentity=$userIdentity;
+    $getNotices->userIdentity=$_SESSION['identity'];
     $contenido = $getNotices->getNotices(conexionPDO());
 
 ?>
@@ -33,10 +35,10 @@
                         <a class="navOption" href="#">History</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="userProfile.php?user=<?php echo $userIdentity; ?>">Profile</a>
+                        <a class="navOption" href="userProfile.php>">Profile</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="userConfig.php?user=<?php echo $userIdentity; ?>">Config</a>
+                        <a class="navOption" href="userConfig.php">Config</a>
                     </li>
                 </ul>
             </nav>
