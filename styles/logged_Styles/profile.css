@@ -166,3 +166,7 @@ footer{
     min-height: 300px;
     background-color: brown;
 }
+
+.profileName {
+    font-size: 30px;
+}
