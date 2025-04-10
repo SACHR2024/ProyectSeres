@@ -1,12 +1,23 @@
 <?php
     include("../../functions/conection.php");
-    include("../../functions/Service/noticeService.php");
 
+    $toConexion = conexionSqlsrv();
     $userIdentity = $_GET['user'];
-    $getNotices = new noticeService();
 
-    $getNotices->userIdentity=$userIdentity;
-    $contenido = $getNotices->getNotices(conexionPDO());
+    if ($userIdentity > 0) {
+        
+        $target = "EXEC userSelected $userIdentity";
+        $toGet = sqlsrv_query($toConexion, $target);
+
+        $user = sqlsrv_fetch_array($toGet);
+        $serName = $user['serName'];
+        $serMail = $user['serEmail'];
+        $serProf = $user['imgProfile'];
+        $serImgBg = $user['imgBackground'];
+
+    }else {
+        $oldName = "Usuario no encontrado";
+    }
 
 ?>
 <!DOCTYPE html>
@@ -43,12 +54,20 @@
         <div class="mainAsideContend">
             <main class="profileMain">
                <div class="profileBackground">
-                    <P>ESE ES EL PERFIL</P>
-                    <div class="profileImage">
-                        <img src="../../static/image/profileTest.jpg" alt="profile" width="200px" height="200px">
-                    </div>
+                        <img class="profileImage" src="../../static/image/<?php echo $serProf ?>.jpg" alt="profile">
+                        <h2 class="profileName"><?php echo $serName ?></h2>
                </div>
-               <div class="profileInfo">esta es la informacion del Usuario</div>
+               <div class="profileInfo">
+                <div>
+                    <p>biografia, etc</p>
+                </div>
+                <div>
+                    <p>historial de mapas</p>
+                </div>
+                <div>
+                    <p>rango y nivel</p>
+                </div>
+               </div>
             </main>
             <aside>
                 <div class="asideContend">
