@@ -170,3 +170,9 @@ footer{
 .profileName {
     font-size: 30px;
 }
+
+.configProfile{
+    width: 97%;
+    display: flex;
+    justify-content: end;
+}

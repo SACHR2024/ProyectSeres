@@ -4,6 +4,16 @@
     session_name("seresUser");
     session_start();
 
+    $seruser = "Usuario no encontrado";
+    $serProf = "noImage";
+    $serBG = "noBG";
+    
+    if ($_SESSION['identity'] > 0) {
+        $seruser = $_SESSION['name'];
+        $serProf = $_SESSION['profile_image'];
+        $serBG = $_SESSION['profile_background'];
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,8 +49,11 @@
         <div class="mainAsideContend">
             <main class="profileMain">
                <div class="profileBackground">
-                        <img class="profileImage" src="../../static/image/<?php echo $_SESSION['profile_image'] ?>.jpg" alt="profile">
-                        <h2 class="profileName"><?php echo $_SESSION['name'] ?></h2>
+
+                    <div class="configProfile"> <a href="userConfig.php"><img src="../../static/image/Gears-PNG-Images.png" width ="40px" height="40px" alt="options"></a> </div>
+                    <img class="profileImage" src="../../static/image/<?php echo $serProf ?>.jpg" alt="profile">
+                    <h2 class="profileName"><?php echo $seruser ?></h2>
+
                </div>
                <div class="profileInfo">
                 <div>
