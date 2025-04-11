@@ -1,22 +1,17 @@
 <?php
     include("../../functions/conection.php");
 
-    $toConexion = conexionSqlsrv();
-    $userIdentity = $_GET['user'];
+    session_name("seresUser");
+    session_start();
 
-    if ($userIdentity > 0) {
-        
-        $target = "EXEC userSelected $userIdentity";
-        $toGet = sqlsrv_query($toConexion, $target);
-
-        $user = sqlsrv_fetch_array($toGet);
-        $serName = $user['serName'];
-        $serMail = $user['serEmail'];
-        $serProf = $user['imgProfile'];
-        $serImgBg = $user['imgBackground'];
-
-    }else {
-        $oldName = "Usuario no encontrado";
+    $seruser = "Usuario no encontrado";
+    $serProf = "noImage";
+    $serBG = "noBG";
+    
+    if ($_SESSION['identity'] > 0) {
+        $seruser = $_SESSION['name'];
+        $serProf = $_SESSION['profile_image'];
+        $serBG = $_SESSION['profile_background'];
     }
 
 ?>
@@ -43,10 +38,10 @@
                         <a class="navOption" href="#">History</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="userHome.php?user=<?php echo $userIdentity; ?>">Home</a>
+                        <a class="navOption" href="userHome.php">Home</a>
                     </li>
                     <li class="navButton">
-                        <a class="navOption" href="userConfig.php?user=<?php echo $userIdentity; ?>">Config</a>
+                        <a class="navOption" href="userConfig.php">Config</a>
                     </li>
                 </ul>
             </nav>
@@ -54,8 +49,11 @@
         <div class="mainAsideContend">
             <main class="profileMain">
                <div class="profileBackground">
-                        <img class="profileImage" src="../../static/image/<?php echo $serProf ?>.jpg" alt="profile">
-                        <h2 class="profileName"><?php echo $serName ?></h2>
+
+                    <div class="configProfile"> <a href="userConfig.php"><img src="../../static/image/Gears-PNG-Images.png" width ="40px" height="40px" alt="options"></a> </div>
+                    <img class="profileImage" src="../../static/image/<?php echo $serProf ?>.jpg" alt="profile">
+                    <h2 class="profileName"><?php echo $seruser ?></h2>
+
                </div>
                <div class="profileInfo">
                 <div>
