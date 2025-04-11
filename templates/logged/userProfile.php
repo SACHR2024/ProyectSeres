@@ -1,24 +1,8 @@
 <?php
     include("../../functions/conection.php");
 
-    // $toConexion = conexionSqlsrv();
-    // $userIdentity = $_GET['user'];
     session_name("seresUser");
     session_start();
-    // if ($userIdentity > 0) {
-        
-    //     $target = "EXEC userSelected $userIdentity";
-    //     $toGet = sqlsrv_query($toConexion, $target);
-
-    //     $user = sqlsrv_fetch_array($toGet);
-    //     $serName = $user['serName'];
-    //     $serMail = $user['serEmail'];
-    //     $serProf = $user['imgProfile'];
-    //     $serImgBg = $user['imgBackground'];
-
-    // }else {
-    //     $oldName = "Usuario no encontrado";
-    // }
 
 ?>
 <!DOCTYPE html>
