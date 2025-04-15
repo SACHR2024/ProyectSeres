@@ -5,6 +5,8 @@
         var $idUser;
         var $passwordUser;
         var $emailUser;
+        var $profileUser;
+        var $backgroundUSer;
 
         function construct(){
             

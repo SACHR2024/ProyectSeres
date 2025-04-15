@@ -60,7 +60,7 @@
         <div class="mainAsideContend">
             <main>
                 <div class="arts">
-                    <form method="post" action="../../functions/loggedFuntions/configUser.php" class="forForm" >
+                    <form method="post" action="../../functions/loggedFuntions/configUser.php" class="forForm" enctype="multipart/form-data" >
 
                         <input type="hidden" value="<?php echo $userIdentity; ?>" name="userID" readOnly required>
 
@@ -75,6 +75,12 @@
 
                         <label for="userEmail">Email</label>
                         <input class="toInput" type="email" placeholder="example@domain.com" value="<?php echo $oldMail; ?>" id="userEmail" name="userEmail" required>
+
+                        <label for="userProfileImage">imagen de perfil</label>
+                        <input class="toInput" type="file" placeholder="example@domain.com" value="<?php echo $_SESSION['profile_image']; ?>" id="userProfileImage" name="userProfileImage">
+
+                        <label for="userProfileBG">fondo de perfil</label>
+                        <input class="toInput" type="file" placeholder="example@domain.com" value="<?php echo $_SESSION['profile_image']; ?>" id="userProfileBG" name="userProfileBG">
 
                         <br>
 
