@@ -9,6 +9,8 @@
         $userActions->nameUser = $_POST['userName'];
         $userActions->passwordUser = $_POST['userPassword'];
         $userActions->emailUser = $_POST['userEmail'];
+        $userActions->profileUser = $_FILES['userProfileImage']['name'];
+        $userActions->backgroundUser = $_FILES['userProfileBG']['name'];
         $passwordConfirm = $_POST['passwordConfirm'];
 
         $updateResp = $userActions->UpdateUser($toConect, $passwordConfirm);
